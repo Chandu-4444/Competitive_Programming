@@ -10,6 +10,7 @@ import java.util.Scanner;
 
 public class FactorsOfFactorial {
     public static void main(String args[]) throws IOException {
+        long startTime = System.currentTimeMillis();
         try {
             Scanner in = new Scanner(System.in);
             int n = in.nextInt();
@@ -51,6 +52,8 @@ public class FactorsOfFactorial {
             e.printStackTrace();
             return;
         }
+        long endTime = System.currentTimeMillis();
+        System.out.println("Execution Time: "+(endTime - startTime)+"ms");
     }
     static int mulmod(int a, long b,
                        int mod)
@@ -59,7 +62,6 @@ public class FactorsOfFactorial {
         a = a % mod;
         while (b > 0)
         {
-            // If b is odd, add 'a' to result
             if (b % 2 == 1)
             {
                 res = (res + a) % mod;
