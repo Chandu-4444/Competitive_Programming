@@ -1,4 +1,4 @@
-package luna.D2;
+package luna.d2;
 /*
   Author: Luna
   Date: 08/09/21
@@ -44,44 +44,32 @@ public class ChessCompetition {
                     int diagonal = n;
                     int onesDeduction = ones * (n - 1) * 2;
                     int rem = totalBoxes - diagonal - onesDeduction;
-                    if(twos*2>rem)
-                    {
+                    if (twos * 2 > rem) {
                         System.out.println("NO");
                         continue;
                     }
                     System.out.println("YES");
                     char ans[][] = new char[n][n];
                     int won[] = new int[n];
-                    for(int i=0;i<n;i++)
-                    {
+                    for (int i = 0; i < n; i++) {
                         Arrays.fill(ans[i], ' ');
                     }
-                    for(int i=0;i<n;i++)
-                    {
-                        for(int j=0;j<n;j++)
-                        {
-                            if(ans[i][j]==' ')
-                            {
-                                if(i==j)
-                                {
+                    for (int i = 0; i < n; i++) {
+                        for (int j = 0; j < n; j++) {
+                            if (ans[i][j] == ' ') {
+                                if (i == j) {
                                     ans[i][j] = 'X';
-                                }
-                                else if(s.charAt(i)=='1')
-                                {
+                                } else if (s.charAt(i) == '1') {
 //                                System.out.print("=");
                                     ans[i][j] = '=';
                                     ans[j][i] = '=';
-                                }
-                                else{
-                                    if(won[i]==0 && s.charAt(j)!='1')
-                                    {
+                                } else {
+                                    if (won[i] == 0 && s.charAt(j) != '1') {
                                         ans[i][j] = '+';
                                         ans[j][i] = '-';
                                         won[i] = 1;
 
-                                    }
-                                    else if(won[i]==1 && s.charAt(j)!='1' && won[j]!=1)
-                                    {
+                                    } else if (won[i] == 1 && s.charAt(j) != '1' && won[j] != 1) {
                                         ans[i][j] = '-';
                                         ans[j][i] = '+';
                                         won[j] = 1;
@@ -93,10 +81,8 @@ public class ChessCompetition {
                         }
                     }
 
-                    for(int i=0;i<n;i++)
-                    {
-                        for (int j=0;j<n;j++)
-                        {
+                    for (int i = 0; i < n; i++) {
+                        for (int j = 0; j < n; j++) {
                             System.out.print(ans[i][j]);
                         }
                         System.out.println();

@@ -1,4 +1,4 @@
-package luna.D2;
+package luna.d2;
 
 // Problem Link: https://codeforces.com/gym/101962/problem/F
 /*
@@ -14,7 +14,7 @@ public class RenanzinhoToys {
     public static void main(String args[]) throws IOException {
         try {
             Scanner in = new Scanner(System.in);
-            
+
 
         } catch (Exception e) {
             e.printStackTrace();

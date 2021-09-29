@@ -1,4 +1,4 @@
-package luna.D2;
+package luna.d2;
 /*
   Author: Luna
   Date: 28/08/21

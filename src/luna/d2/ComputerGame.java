@@ -1,4 +1,4 @@
-package luna.D2;
+package luna.d2;
 
 // Problem Link: https://codeforces.com/contest/1183/problem/C
 /*
@@ -24,16 +24,12 @@ public class ComputerGame {
 
                 long low = 0, high = n;
 
-                while(high-low>1)
-                {
-                    long mid = low + (high - low)/2;
+                while (high - low > 1) {
+                    long mid = low + (high - low) / 2;
 
-                    if(possible(k, a, b, n, mid))
-                    {
+                    if (possible(k, a, b, n, mid)) {
                         low = mid;
-                    }
-                    else
-                    {
+                    } else {
                         high = mid;
                     }
                 }
@@ -41,12 +37,10 @@ public class ComputerGame {
 //                System.out.println(low+" "+high);
 
                 long ans = -1;
-                if(possible(k, a, b, n, low))
-                {
+                if (possible(k, a, b, n, low)) {
                     ans = Math.max(low, ans);
                 }
-                if (possible(k, a, b, n, high))
-                {
+                if (possible(k, a, b, n, high)) {
                     ans = Math.max(ans, high);
                 }
                 System.out.println(ans);
@@ -59,8 +53,7 @@ public class ComputerGame {
     }
 
     private static boolean possible(long k, long a, long b, long n, long mid) {
-        if(a*mid + b*(n-mid) < k)
-        {
+        if (a * mid + b * (n - mid) < k) {
             return true;
         }
         return false;

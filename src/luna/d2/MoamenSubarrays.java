@@ -1,4 +1,4 @@
-package luna.D2;
+package luna.d2;
 
 // Problem Link: https://codeforces.com/problemset/problem/1557/B
 /*
@@ -33,9 +33,8 @@ public class MoamenSubarrays {
 
                 int ans = 1;
 
-                for (int i = 1; i < n ; i++) {
-                    if(map.get(a[i-1])+1 != map.get(a[i]))
-                    {
+                for (int i = 1; i < n; i++) {
+                    if (map.get(a[i - 1]) + 1 != map.get(a[i])) {
                         ans++;
                     }
 

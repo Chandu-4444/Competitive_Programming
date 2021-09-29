@@ -1,4 +1,4 @@
-package luna.D2;
+package luna.d2;
 
 // Problem Link: https://codeforces.com/gym/101628/problem/J
 /*

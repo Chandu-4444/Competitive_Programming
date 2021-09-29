@@ -1,4 +1,4 @@
-package luna.D2;
+package luna.d2;
 
 import java.io.IOException;
 import java.util.Arrays;

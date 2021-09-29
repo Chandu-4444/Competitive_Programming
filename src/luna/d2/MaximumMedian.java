@@ -1,4 +1,4 @@
-package luna.D2;
+package luna.d2;
 
 // Problem Link: https://codeforces.com/contest/1201/problem/C
 /*
@@ -18,36 +18,28 @@ public class MaximumMedian {
             int k = in.nextInt();
 
             int a[] = new int[n];
-            for(int i=0;i<n;i++)
-            {
+            for (int i = 0; i < n; i++) {
                 a[i] = in.nextInt();
             }
 
             Arrays.sort(a);
 
-            long low = a[n/2];
-            long high = a[n-1] + k;
+            long low = a[n / 2];
+            long high = a[n - 1] + k;
 
-            while(high - low > 1)
-            {
-                long mid = low + (high - low)/2;
+            while (high - low > 1) {
+                long mid = low + (high - low) / 2;
 
-                if(possible(a, k, mid))
-                {
+                if (possible(a, k, mid)) {
                     low = mid;
-                }
-                else
-                {
+                } else {
                     high = mid;
                 }
             }
 
-            if(possible(a, k, high))
-            {
+            if (possible(a, k, high)) {
                 System.out.println(high);
-            }
-            else
-            {
+            } else {
                 System.out.println(low);
             }
 
@@ -60,10 +52,8 @@ public class MaximumMedian {
     private static boolean possible(int[] a, int k, long mid) {
         long tot = 0;
 
-        for(int i=a.length/2;i<a.length;i++)
-        {
-            if(a[i]<mid)
-            {
+        for (int i = a.length / 2; i < a.length; i++) {
+            if (a[i] < mid) {
                 tot += (mid - a[i]);
             }
         }

@@ -1,4 +1,4 @@
-package luna.D2;
+package luna.d2;
 
 // Problem Link: https://codeforces.com/contest/16/problem/C
 /*
@@ -22,37 +22,30 @@ public class Monitor {
             long GCD = gcd(x, y);
 
             // Converting to actual ratios (relatively primes)
-            while(GCD!=1)
-            {
-                x = x/GCD;
-                y = y/GCD;
+            while (GCD != 1) {
+                x = x / GCD;
+                y = y / GCD;
                 GCD = gcd(x, y);
             }
 
-            long low = 0, high = (long)2e9 + 1;
+            long low = 0, high = (long) 2e9 + 1;
 
             while (high - low > 1) {
                 long mid = low + (high - low) / 2;
 
 
-
-                if(possible(mid, x, y, a, b))
-                {
+                if (possible(mid, x, y, a, b)) {
                     low = mid;
-                }
-                else{
+                } else {
                     high = mid;
                 }
             }
 
-            if(possible(low, x, y, a, b))
-            {
-                System.out.println(low*x+" "+low*y);
+            if (possible(low, x, y, a, b)) {
+                System.out.println(low * x + " " + low * y);
+            } else {
+                System.out.println(high * x + " " + high * y);
             }
-            else{
-                System.out.println(high*x+" "+high*y);
-            }
-
 
 
         } catch (Exception e) {
@@ -61,14 +54,13 @@ public class Monitor {
         }
     }
 
-    public static long gcd(long a, long b)
-    {
-        if(b==0)
+    public static long gcd(long a, long b) {
+        if (b == 0)
             return a;
-        return gcd(b, a%b);
+        return gcd(b, a % b);
     }
-    public static boolean possible(long mid, long x, long y, long a, long b)
-    {
+
+    public static boolean possible(long mid, long x, long y, long a, long b) {
         long side1 = mid * x;
         long side2 = mid * y;
 
