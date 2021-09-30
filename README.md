@@ -8,6 +8,12 @@
     - [Copying Books](./src/luna/spoj/CopyingBooks.java)
     - [Eko Eko](./src/luna/spoj/EKO.java)
     - [Maximum Median](./src/luna/d2/MaximumMedian.java)
-- [Graphs]()
+- Graphs/Trees
     - [Tours (using all source DFS/BFS)](./src/luna/atcoder/Tour.java)
     - [One-Stroke Path](./src/luna/atcoder/OneStrokePath.java)
+    - [Distance Queries](./src/luna/cses/DistanceQueries.java)
+    - [Company Queries (Binary Lifting)](./src/luna/cses/CompanyQueriesI.java)
+    
+ - Miscellaneous
+   - [H and V (Nice idea)](./src/luna/atcoder/HandV.java)
+   - [Skill Up (Same idea as above)](./src/luna/atcoder/SkippUp.java)

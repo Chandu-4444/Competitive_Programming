@@ -6,30 +6,149 @@ package luna.spoj;
   Date: 29/09/21
   Time: 6:03 PM
  */
-import java.util.*;
-import java.io.IOException;
+
 import java.io.DataInputStream;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.Stack;
 
 public class PoliceMen {
+    static ArrayList<Integer> adj[];
+    static int depth[];
+    static int up[][];
+    static int LOG = 20;
     public static void main(String args[]) throws IOException {
-        try{
-            Reader in = new Reader();
-            PrintWriter out = new PrintWriter(System.out);
-            
-            
-            
-            out.println();
-            out.close();
-    } catch(Exception e){
-        e.printStackTrace();
-        return;
+        try {
+//            Reader in = new Reader();
+//            PrintWriter out = new PrintWriter(System.out);
+            Scanner in = new Scanner(System.in);
+            int n = in.nextInt();
+            depth = new int[n];
+            up = new int[n][LOG];
+            adj = new ArrayList[n];
+            for(int i=0;i<n;i++)
+            {
+                adj[i] = new ArrayList<>();
+            }
+
+            for(int i=0;i<n-1;i++)
+            {
+                int x = in.nextInt() - 1;
+                int y = in.nextInt() - 1;
+                adj[x].add(y);
+                adj[y].add(x);
+            }
+
+            // Run a DFS/BFS and update up, depth
+            Stack<Integer> stack = new Stack<>();
+            stack.push(0);
+            depth[0] = 0;
+            up[0][0] = 0;
+            while (stack.size()>0)
+            {
+                int currNode = stack.pop();
+                for (int i = 1; i < LOG; i++) {
+                    up[currNode][i] = up[up[currNode][i - 1]][i - 1];
+                }
+
+                for(int i: adj[currNode])
+                {
+                    if(i!=up[currNode][0])
+                    {
+                        depth[i] = depth[currNode] + 1;
+                        up[i][0] = currNode;
+                        stack.add(i);
+                    }
+                }
+            }
+
+//            for(int i: depth)
+//            {
+//                System.out.print(i+" ");
+//            }
+//            System.out.println();
+//            for(int i=0;i<n;i++)
+//            {
+//                System.out.print((i+1)+"-->");
+//                for(int j=0;j<LOG;j++)
+//                {
+//                    System.out.print(up[i][j]+" ");
+//                }
+//                System.out.println();
+//            }
+
+            // Process the queries, find the least distance to root
+            int q = in.nextInt();
+            while(q-->0)
+            {
+                int x = in.nextInt() - 1;
+                int y = in.nextInt() - 1;
+
+                int distThief = depth[x] - depth[0];
+                int distPolice = depth[y] - depth[0];
+
+                if(distPolice>distThief)
+                {
+                    System.out.println("NO");
+                }
+                else{
+                    int l = lca(x, y);
+                    System.out.println("YES "+(l+1));
+
+                }
+            }
+
+
+
+
+//            out.println();
+//            out.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return;
+        }
     }
-  }
-  
-  // <---------- Fast IO --------->
-      static class Reader {
+
+    static int lca(int u, int v)
+    {
+        if(depth[u]<depth[v])
+        {
+            int temp = u;
+            u = v;
+            v = u;
+        }
+
+        int diff = depth[u] - depth[v];
+
+        for(int i=0;i<LOG;i++)
+        {
+            if(((diff>>i)&1)==1)
+            {
+                u = up[u][i];
+            }
+        }
+        if(u==v)
+        {
+            return u;
+        }
+
+        for(int i=LOG-1;i>=0;i--)
+        {
+            if(up[u][i]!=up[v][i])
+            {
+                u = up[u][i];
+                v = up[v][i];
+            }
+        }
+
+        return up[u][0];
+    }
+
+    // <---------- Fast IO --------->
+    static class Reader {
         final private int BUFFER_SIZE = 1 << 16;
         private DataInputStream din;
         private byte[] buffer;

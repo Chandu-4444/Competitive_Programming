@@ -10,7 +10,6 @@
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Stack;
 import java.util.StringTokenizer;
 
@@ -72,7 +71,6 @@ public class CompanyQueriesII {
             while (q-- > 0) {
                 int u = in.nextInt();
                 int v = in.nextInt();
-                int a = u, b = v;
 
 //                out.println(depth[u]+" "+depth[v]);
                 if (depth[u] < depth[v]) {

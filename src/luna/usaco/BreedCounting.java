@@ -1,4 +1,4 @@
-package luna.usaco;
+//package luna.usaco;
 
 // Problem Link: http://www.usaco.org/index.php?page=viewproblem2&cpid=572
 /*
@@ -6,30 +6,54 @@ package luna.usaco;
   Date: 29/09/21
   Time: 10:23 PM
  */
-import java.util.*;
-import java.io.IOException;
-import java.io.DataInputStream;
-import java.io.FileInputStream;
-import java.io.PrintWriter;
+
+import java.io.*;
+import java.util.StringTokenizer;
 
 public class BreedCounting {
     public static void main(String args[]) throws IOException {
-        try{
-            Reader in = new Reader();
-            PrintWriter out = new PrintWriter(System.out);
-            
-            
-            
-            out.println();
+        try {
+//            Reader in = new Reader();
+//            PrintWriter out = new PrintWriter(System.out);
+            BufferedReader read = new BufferedReader((new FileReader("bcount.in")));
+            PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("bcount.out")));
+            StringTokenizer initial = new StringTokenizer(read.readLine());
+            int n = Integer.parseInt(initial.nextToken());
+            int q = Integer.parseInt(initial.nextToken());
+            int a[] = new int[n+1];
+            int b[] = new int[n+1];
+            int c[] = new int[n+1];
+            for (int i = 1; i <= n; i++) {
+                int ele = Integer.parseInt(read.readLine());
+                if (ele == 1) {
+                    a[i] = 1;
+                } else if (ele == 2) {
+                    b[i] = 1;
+                } else {
+                    c[i] = 1;
+                }
+            }
+
+            for (int i = 1; i <= n; i++) {
+                    a[i] = a[i] + a[i - 1];
+                    b[i] = b[i] + b[i - 1];
+                    c[i] = c[i] + c[i - 1];
+            }
+            while (q-- > 0) {
+                StringTokenizer query = new StringTokenizer(read.readLine());
+                int l = Integer.parseInt(query.nextToken());
+                int r = Integer.parseInt(query.nextToken());
+                out.println((a[r] - a[l-1]) + " " + (b[r] - b[l-1]) + " " + (c[r] - c[l-1]));
+            }
             out.close();
-    } catch(Exception e){
-        e.printStackTrace();
-        return;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return;
+        }
     }
-  }
-  
-  // <---------- Fast IO --------->
-      static class Reader {
+
+    // <---------- Fast IO --------->
+    static class Reader {
         final private int BUFFER_SIZE = 1 << 16;
         private DataInputStream din;
         private byte[] buffer;

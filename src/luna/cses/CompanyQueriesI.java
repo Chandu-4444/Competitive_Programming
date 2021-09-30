@@ -7,6 +7,7 @@
   Time: 11:36 AM
  */
 
+
 import java.io.*;
 import java.util.StringTokenizer;
 
@@ -43,6 +44,7 @@ public class CompanyQueriesI {
 
                 out.println(ans);
             }
+            
 
             out.println();
             out.close();

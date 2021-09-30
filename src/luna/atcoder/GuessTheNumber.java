@@ -6,6 +6,7 @@ package luna.atcoder;
   Date: 29/09/21
   Time: 5:35 PM
  */
+
 import java.util.*;
 import java.io.IOException;
 import java.io.DataInputStream;
@@ -14,22 +15,63 @@ import java.io.PrintWriter;
 
 public class GuessTheNumber {
     public static void main(String args[]) throws IOException {
-        try{
+        try {
             Reader in = new Reader();
             PrintWriter out = new PrintWriter(System.out);
-            
-            
-            
+            int n = in.nextInt();
+            int m = in.nextInt();
+
+            int ans[] = new int[n];
+            Arrays.fill(ans,-1);
+            boolean possible = true;
+            for(int i=0;i<m;i++)
+            {
+                int index = in.nextInt()-1;
+                int val = in.nextInt();
+                if(ans[index]==-1 || (ans[index]!=-1 && ans[index]==val))
+                {
+                    ans[index] = val;
+                }
+                else{
+                    possible = false;
+                }
+            }
+
+            if(possible==false || (ans[0]==0 && n!=1))
+            {
+                System.out.println(-1);
+            }
+            else{
+                for(int i=0;i<n;i++)
+                {
+                    if(ans[i]==-1)
+                    {
+                        ans[i] = 0;
+                    }
+                }
+                if(ans[0]==0 && n!=1)
+                {
+                    ans[0] = 1;
+                }
+                for(int i: ans)
+                {
+                    System.out.print(i);
+                }
+            }
+
+
+
+
             out.println();
             out.close();
-    } catch(Exception e){
-        e.printStackTrace();
-        return;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return;
+        }
     }
-  }
-  
-  // <---------- Fast IO --------->
-      static class Reader {
+
+    // <---------- Fast IO --------->
+    static class Reader {
         final private int BUFFER_SIZE = 1 << 16;
         private DataInputStream din;
         private byte[] buffer;
