@@ -6,30 +6,29 @@ package luna.atcoder;
   Date: 03/10/21
   Time: 11:13 AM
  */
-import java.util.*;
-import java.io.IOException;
+
 import java.io.DataInputStream;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.PrintWriter;
 
 public class C_Sel_Mul {
     public static void main(String args[]) throws IOException {
-        try{
+        try {
             Reader in = new Reader();
             PrintWriter out = new PrintWriter(System.out);
-            
-            
-            
+
+
             out.println();
             out.close();
-    } catch(Exception e){
-        e.printStackTrace();
-        return;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return;
+        }
     }
-  }
-  
-  // <---------- Fast IO --------->
-      static class Reader {
+
+    // <---------- Fast IO --------->
+    static class Reader {
         final private int BUFFER_SIZE = 1 << 16;
         private DataInputStream din;
         private byte[] buffer;

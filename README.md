@@ -39,13 +39,25 @@
         - $gcd(a,b,c,d) = gcd(a,b,gcd(c,d)) = gcd(a, gcd(b, gcd(c, d)))$
     - Total factors of N = $O(n^{\frac{1}{3}})$
     - Count of all primes from 1 to N = $O(\frac{N}{\ln{N}})$
-  - Modular Arithematic
+  - <h2>Modular Arithematic</h2>
+
     - $(x+y)\mod m = (x\mod m + y\mod m) \mod m$
       - $x \mod m = r1,\\$  $y \mod m = r2\\$ $x = m*a + r1\\$  $y = m*b + r2\\$
        $(x+y)\mod m = (m*a + r1) \mod m + (m*b + r2)\mod m \implies (r1 + r2)\mod m \implies r1 + r2$
     - $(x - y)\mod m = ((x\mod m) - (y\mod m) + m)\mod m$  (Additional m to compensate the negative remainders.)
     - $(x*y)\mod m = ((x\mod m)*(y\mod m))\mod m$
+    - Modular Multiplicative Inverse: $(a.b\mod m) = 1$
+    - Ferrmat's little theorem
+      - If m is prime and a $\in$ [1, m-1], then $a^{m}\mod m = a\mod m$
+        - Let $x = a^{-1}\\$
+          Multiply this on both sides to get $a^{m-1}\mod m = 1\\$
+          So, this gives our MMI for a. 
+    - $10^9+7$ is a prime number.
     - [Binary Exponentiation](https://cp-algorithms.com/algebra/binary-exp.html)
+  
+    - <h2>Sieve of Eratosthenes</h2>
+      
+      - 
 
       
         

@@ -1,4 +1,4 @@
-//package luna.usaco;
+package luna.usaco;
 
 // Problem Link: http://www.usaco.org/index.php?page=viewproblem2&cpid=572
 /*
