@@ -1,5 +1,4 @@
 package luna.d2;
-
 // Problem Link: https://codeforces.com/contest/1574/problem/A
 /*
   Author: Luna
