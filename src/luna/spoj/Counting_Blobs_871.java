@@ -1,3 +1,4 @@
+package luna.spoj;
 // package luna.UVa;
 /* Author: Luna
  * Date: 05-October-2021
